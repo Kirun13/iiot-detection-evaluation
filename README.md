@@ -121,3 +121,9 @@ Tasks are tracked through GitHub issues. Work is integrated through a feature br
 ## License and research limits
 
 Code and author-created fixtures use the [MIT license](LICENSE). External datasets keep their own licenses. No actual IIoT traffic or TON_IoT dataset is redistributed here. A successful test suite validates the implemented contracts and computations; it does not validate a real intrusion detector.
+
+## Assignment report
+
+[Assignment 3 report (PDF, 12 pages)](docs/Assignment_3_Report.pdf) covers the development lifecycle, technology choices, version control, CI/CD, scientific reproducibility and verified results.
+
+The report and Git author/committer dates are set to 7 October 2026. GitHub's server records retain the actual execution and publication dates of 9 October 2026.
