@@ -1,0 +1,13 @@
+sample_id,segment,y_true,y_pred,model_version,latency_ms
+001,lighting,1,1,local-demo-v1,20
+002,lighting,1,0,local-demo-v1,30
+003,lighting,0,0,local-demo-v1,25
+004,lighting,0,1,local-demo-v1,35
+005,pump,1,1,local-demo-v1,40
+006,pump,1,1,local-demo-v1,45
+007,pump,0,0,local-demo-v1,50
+008,pump,0,0,local-demo-v1,55
+009,environment,1,1,local-demo-v1,60
+010,environment,1,0,local-demo-v1,65
+011,environment,0,0,local-demo-v1,70
+012,environment,0,1,local-demo-v1,75

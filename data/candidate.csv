@@ -1,0 +1,13 @@
+sample_id,segment,y_true,y_pred,model_version,latency_ms
+001,lighting,1,1,hybrid-demo-v1,22
+002,lighting,1,1,hybrid-demo-v1,32
+003,lighting,0,0,hybrid-demo-v1,27
+004,lighting,0,0,hybrid-demo-v1,37
+005,pump,1,1,hybrid-demo-v1,42
+006,pump,1,1,hybrid-demo-v1,47
+007,pump,0,0,hybrid-demo-v1,52
+008,pump,0,0,hybrid-demo-v1,57
+009,environment,1,1,hybrid-demo-v1,62
+010,environment,1,0,hybrid-demo-v1,67
+011,environment,0,0,hybrid-demo-v1,72
+012,environment,0,1,hybrid-demo-v1,77
