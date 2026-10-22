@@ -29,6 +29,8 @@ Initial installation creates an `admin` account and writes a randomly generated 
 
 The setup creates `iiot-assignment-5`, using `Jenkinsfile` from `feature/assignment-5-ci` in the public GitHub repository. SCM polling runs every minute after the first build loads the Jenkinsfile. GitHub credentials are not needed to read the public repository. Before running another repository, change the repository and branch configuration in the setup script. The GitHub Actions workflow continues to run separately.
 
+The agent workspace is `%USERPROFILE%/AppliedSoftJenkinsAgent`, outside the controller configuration directory. Verify that Docker Desktop can read a bind mount from this location. On the tested host, a workspace under `%LOCALAPPDATA%` appeared empty inside containers, so it is unsuitable for container input/output mounts.
+
 ## Pipeline and evidence
 
 `Jenkinsfile` performs a clean checkout, validates the agent environment, installs locked dependencies, checks types, executes all tests with JUnit output, evaluates the CSVs natively, builds a Docker image, evaluates it three times, rejects an invalid CSV, and compares all six output hashes. Packaging occurs only after these checks pass. Jenkins always archives available diagnostics and JUnit output, including on failed builds.

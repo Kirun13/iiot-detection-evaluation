@@ -29,7 +29,7 @@ if (Test-Path -LiteralPath $agentPid) {
     $agentRunning = $null -ne (Get-Process -Id ([int](Get-Content $agentPid)) -ErrorAction SilentlyContinue)
 }
 if (!$agentRunning) {
-    $agent = Start-Process -FilePath $java -ArgumentList @('-Xmx512m', '-jar', "`"$agentJar`"", '-url', 'http://127.0.0.1:8080/', '-secret', "`"@$(Join-Path $Runtime 'secrets/agent-secret.txt')`"", '-name', 'windows-docker', '-webSocket', '-workDir', "`"$(Join-Path $Runtime 'agent')`"") -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $Runtime 'agent.out.log') -RedirectStandardError (Join-Path $Runtime 'agent.err.log')
+    $agent = Start-Process -FilePath $java -ArgumentList @('-Xmx512m', '-jar', "`"$agentJar`"", '-url', 'http://127.0.0.1:8080/', '-secret', "`"@$(Join-Path $Runtime 'secrets/agent-secret.txt')`"", '-name', 'windows-docker', '-webSocket', '-workDir', "`"$(Join-Path $env:USERPROFILE 'AppliedSoftJenkinsAgent')`"") -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $Runtime 'agent.out.log') -RedirectStandardError (Join-Path $Runtime 'agent.err.log')
     [IO.File]::WriteAllText($agentPid, [string]$agent.Id)
 }
 Write-Output 'Jenkins: http://127.0.0.1:8080/ (admin password is in the local runtime secrets directory).'

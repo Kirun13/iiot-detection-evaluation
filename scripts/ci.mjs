@@ -29,6 +29,7 @@ const hardened = ['--rm', '--read-only', '--cap-drop=ALL', '--security-opt=no-ne
 
 switch (process.argv[2]) {
   case 'environment': {
+    assert.equal(capture('git', ['status', '--porcelain']), '', 'CI requires a clean checkout');
     const expected = readFileSync('.nvmrc', 'utf8').trim();
     assert.equal(process.versions.node, expected, 'Agent Node.js must match .nvmrc');
     json('environment.json', {

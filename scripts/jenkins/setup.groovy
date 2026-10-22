@@ -28,10 +28,15 @@ j.setNumExecutors(0)
 JenkinsLocationConfiguration.get().setUrl('http://127.0.0.1:8080/')
 if (j.getNode('windows-docker') == null) {
     def node = new DumbSlave('windows-docker', 'Local Windows agent with Docker Desktop',
-        new File(runtime, 'agent').absolutePath, '1', Node.Mode.NORMAL, 'windows-docker',
+        new File(System.getProperty('user.home'), 'AppliedSoftJenkinsAgent').absolutePath, '1', Node.Mode.NORMAL, 'windows-docker',
         new JNLPLauncher(), new RetentionStrategy.Always(), [])
     j.addNode(node)
 }
+j.getNode('windows-docker').setRemoteFS(new File(System.getProperty('user.home'), 'AppliedSoftJenkinsAgent').absolutePath)
+j.getNode('windows-docker').save()
+def gitDescriptor = j.getDescriptorByType(hudson.plugins.git.GitTool.DescriptorImpl)
+gitDescriptor.setInstallations(new hudson.plugins.git.GitTool('Default', new File(System.getenv('ProgramFiles'), 'Git/cmd/git.exe').absolutePath, []))
+gitDescriptor.save()
 if (j.getItem('iiot-assignment-5') == null) {
     def job = j.createProject(WorkflowJob, 'iiot-assignment-5')
     def scm = new GitSCM([new UserRemoteConfig('https://github.com/Kirun13/iiot-detection-evaluation.git', null, null, null)],
