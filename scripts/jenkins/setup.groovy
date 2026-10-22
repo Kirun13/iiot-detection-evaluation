@@ -26,14 +26,17 @@ j.setAuthorizationStrategy(authorization)
 j.setCrumbIssuer(new DefaultCrumbIssuer(true))
 j.setNumExecutors(0)
 JenkinsLocationConfiguration.get().setUrl('http://127.0.0.1:8080/')
+def agentRoot = new File(System.getProperty('user.home'), 'AppliedSoftJenkinsAgent').absolutePath
+def existingNode = j.getNode('windows-docker')
+if (existingNode != null && existingNode.remoteFS != agentRoot) {
+    j.removeNode(existingNode)
+}
 if (j.getNode('windows-docker') == null) {
     def node = new DumbSlave('windows-docker', 'Local Windows agent with Docker Desktop',
-        new File(System.getProperty('user.home'), 'AppliedSoftJenkinsAgent').absolutePath, '1', Node.Mode.NORMAL, 'windows-docker',
+        agentRoot, '1', Node.Mode.NORMAL, 'windows-docker',
         new JNLPLauncher(), new RetentionStrategy.Always(), [])
     j.addNode(node)
 }
-j.getNode('windows-docker').setRemoteFS(new File(System.getProperty('user.home'), 'AppliedSoftJenkinsAgent').absolutePath)
-j.getNode('windows-docker').save()
 def gitDescriptor = j.getDescriptorByType(hudson.plugins.git.GitTool.DescriptorImpl)
 gitDescriptor.setInstallations(new hudson.plugins.git.GitTool('Default', new File(System.getenv('ProgramFiles'), 'Git/cmd/git.exe').absolutePath, []))
 gitDescriptor.save()
