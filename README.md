@@ -120,7 +120,7 @@ To use a release archive, extract the `.tgz`, enter its `package` directory, run
 
 The local workflow requires a clean checkout and a Docker-visible workspace. On Windows, the supplied setup places the agent workspace under `%USERPROFILE%/AppliedSoftJenkinsAgent`; Jenkins configuration and credentials remain under `%LOCALAPPDATA%/AppliedSoft/Jenkins`. A separate experimental branch records a deliberately incorrect F1 denominator and its revert for checking CI failure and recovery.
 
-[Experimental record](docs/Assignment_5_Experiments.md), [research article](docs/Assignment_5_Article.md), [article PDF](docs/Assignment_5_Article.pdf) and [execution evidence](docs/Assignment_5_Evidence.zip) document the verified runs and research limits.
+[Experimental record](docs/Assignment_5_Experiments.md), [assignment report](docs/Assignment_5_Report.md), [report PDF](docs/Assignment_5_Report.pdf) and [execution evidence](docs/Assignment_5_Evidence.zip) document the verified runs and research limits. The current report starts with the five theoretical topics, followed by a short practical report and real Jenkins screenshots. The previous article version is retained in `docs/Assignment_5_Article.*`.
 
 ## Development workflow
 

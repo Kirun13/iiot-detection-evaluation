@@ -17,4 +17,4 @@ The principal main build lasted 36.690 seconds. Docker reports a final image siz
 
 [GitHub Actions run 39962431682](https://github.com/Kirun13/iiot-detection-evaluation/actions/runs/39962431682) passed independently on Windows and Linux for the same source revision.
 
-The [research article](Assignment_5_Article.md) describes the method, interpretation and limitations. [Execution evidence](Assignment_5_Evidence.zip) contains full hashes, input and environment metadata, reports, JUnit XML, logs and the pinned Jenkins plugin list. It also retains setup failures separately from the controlled regression. No local Jenkins passwords or agent secrets are included.
+The [assignment report](Assignment_5_Report.md) contains the theoretical section, practical steps, results, difficulties and Jenkins screenshots. [Execution evidence](Assignment_5_Evidence.zip) contains full hashes, input and environment metadata, reports, JUnit XML, logs and the pinned Jenkins plugin list. It also retains setup failures separately from the controlled regression. No local Jenkins passwords or agent secrets are included.
