@@ -1,6 +1,7 @@
 node_modules/
 dist/
 results/
+ci-results/
 coverage/
 *.tgz
 *.log

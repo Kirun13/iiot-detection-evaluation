@@ -114,7 +114,11 @@ CI checks integration. The tag-controlled release is continuous delivery of a CL
 
 To use a release archive, extract the `.tgz`, enter its `package` directory, run `npm install --omit=dev`, then `node dist/cli.js --input data/example.csv --output results`. The release includes compiled files, fixtures and documentation.
 
-## Development
+## Assignment 5 local CI
+
+[Local Docker and Jenkins setup](docs/Assignment_5_Setup.md) extends this CLI with a digest-pinned multi-stage image, a local Windows Jenkins agent and a versioned `Jenkinsfile`. The pipeline compares native reports with three container runs using SHA-256, checks rejection of malformed input and archives JUnit results and evaluation evidence. GitHub Actions remains enabled.
+
+## Development workflow
 
 Tasks are tracked through GitHub issues. Work is integrated through a feature branch and pull request, with automated validation before merge.
 

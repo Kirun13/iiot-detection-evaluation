@@ -1,0 +1,15 @@
+.git
+.github
+node_modules
+dist
+results
+ci-results
+coverage
+docs
+scripts
+tests
+Jenkinsfile
+*.tgz
+*.log
+.env
+.env.*
