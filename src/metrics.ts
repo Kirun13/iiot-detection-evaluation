@@ -27,7 +27,7 @@ export function calculateMetrics(rows: Observation[]): Metrics {
     samples: rows.length, tp, fp, tn, fn,
     precision: ratio(tp, tp + fp),
     recall: ratio(tp, tp + fn),
-    f1: ratio(2 * tp, tp + fp + fn),
+    f1: ratio(2 * tp, 2 * tp + fp + fn),
     fpr: ratio(fp, fp + tn),
     accuracy: (tp + tn) / rows.length,
     latencyP95Ms: latencies.every((x): x is number => x !== null)
