@@ -38,7 +38,7 @@ if (j.getNode('windows-docker') == null) {
     j.addNode(node)
 }
 def gitDescriptor = j.getDescriptorByType(hudson.plugins.git.GitTool.DescriptorImpl)
-gitDescriptor.setInstallations(new hudson.plugins.git.GitTool('Default', new File(System.getenv('ProgramFiles'), 'Git/cmd/git.exe').absolutePath, []))
+gitDescriptor.setInstallations([new hudson.plugins.git.GitTool('Default', new File(System.getenv('ProgramFiles'), 'Git/cmd/git.exe').absolutePath, [])] as hudson.plugins.git.GitTool[])
 gitDescriptor.save()
 if (j.getItem('iiot-assignment-5') == null) {
     def job = j.createProject(WorkflowJob, 'iiot-assignment-5')
