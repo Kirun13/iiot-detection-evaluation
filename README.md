@@ -114,7 +114,15 @@ CI checks integration. The tag-controlled release is continuous delivery of a CL
 
 To use a release archive, extract the `.tgz`, enter its `package` directory, run `npm install --omit=dev`, then `node dist/cli.js --input data/example.csv --output results`. The release includes compiled files, fixtures and documentation.
 
-## Development
+## Assignment 5 local CI
+
+[Local Docker and Jenkins setup](docs/Assignment_5_Setup.md) extends this CLI with a digest-pinned multi-stage image, a local Windows Jenkins agent and a versioned `Jenkinsfile`. The pipeline compares native reports with three container runs using SHA-256, checks rejection of malformed input and archives JUnit results and evaluation evidence. GitHub Actions remains enabled.
+
+The local workflow requires a clean checkout and a Docker-visible workspace. On Windows, the supplied setup places the agent workspace under `%USERPROFILE%/AppliedSoftJenkinsAgent`; Jenkins configuration and credentials remain under `%LOCALAPPDATA%/AppliedSoft/Jenkins`. A separate experimental branch records a deliberately incorrect F1 denominator and its revert for checking CI failure and recovery.
+
+[Experimental record](docs/Assignment_5_Experiments.md), [assignment report](docs/Assignment_5_Report.md), [report PDF](docs/Assignment_5_Report.pdf) and [execution evidence](docs/Assignment_5_Evidence.zip) document the verified runs and research limits. The current report starts with the five theoretical topics, followed by a short practical report and real Jenkins screenshots. The previous article version is retained in `docs/Assignment_5_Article.*`.
+
+## Development workflow
 
 Tasks are tracked through GitHub issues. Work is integrated through a feature branch and pull request, with automated validation before merge.
 
